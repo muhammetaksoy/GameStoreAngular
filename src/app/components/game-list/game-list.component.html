@@ -1,0 +1,30 @@
+
+<div class="container">
+    
+    <h2>{{titleText}}</h2>
+
+    <div class="search-game">
+        <input type="text" [(ngModel)]="searchText" placeholder="type game name..." class="search-game-input">
+        <button class="search-button" routerLink="gameform">{{buttonText}}</button>
+    </div>
+
+    <div class="my-5 alert alert-info" *ngIf="!(gameList.length>0)">
+      {{noRecordText}}
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 my-5" >
+        <div *ngFor="let item of gameList | filter: searchText">
+          <div class="col">
+            <div class="card">
+              <img src={{item.file}} class="card-img-top">
+              <div class="card-body">
+                <p class="card-text"> <b>{{GameNameText}}:</b> {{item.name}}</p>
+                <p class="card-text"><b>{{BundleText}}: </b>  {{item.bundle}}</p>
+                <p class="card-text"><b>{{OwnerText}}:</b> {{item.owner}}</p>
+                <button class="btn btn-danger" (click)="onClickDelete(item)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

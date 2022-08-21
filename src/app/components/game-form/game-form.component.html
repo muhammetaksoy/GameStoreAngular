@@ -1,0 +1,60 @@
+<div class="container">
+    <h2>{{GameFormTitle}}</h2>
+
+    <div class="form-items">
+        <form [formGroup]="gameAddForm">
+            <div class="form-item">
+                <span class="mx-1">*</span>
+                <input type="text" formControlName="name" placeholder="{{GameNameText}}" class="form-item-input">
+                <div class="text-danger"
+                    *ngIf="(gameAddFormControl.name.touched) && gameAddFormControl.name.errors?.required">
+                    {{IsRequired}}
+                </div>
+            </div>
+        
+            <div class="form-item">
+                <span class="mx-1">*</span>
+                <input type="text"  formControlName="bundle" placeholder="{{BundleText}}"class="form-item-input">
+                <div class="text-danger"
+                    *ngIf="(gameAddFormControl.bundle.touched) && gameAddFormControl.bundle.errors?.required">
+                    {{IsRequired}}
+                </div>
+
+                <div class="text-danger"
+                    *ngIf="gameAddFormControl.bundle.touched && gameAddFormControl.bundle.errors?.pattern">
+                    {{IsRequired}}
+                </div>
+            </div>
+
+
+            <div class="form-item">
+                <span class="mx-1">*</span>
+                <input type="text"  formControlName="owner" placeholder="{{OwnerText}}" class="form-item-input">
+                <div class="text-danger"
+                    *ngIf="(gameAddFormControl.owner.touched) && gameAddFormControl.owner.errors?.required">
+                    {{IsRequired}}
+                </div>
+
+                <div class="text-danger"
+                    *ngIf="gameAddFormControl.owner.touched && gameAddFormControl.owner.errors?.email">
+                    {{NotValid}}
+                </div>
+            </div>
+
+    
+            <div class="form-item mt-4">
+                <span class="mx-1">*</span>
+                <input type="file"  formControlName="file" (change)="onChangeFile($event)">
+                <div class="text-danger"
+                    *ngIf="(gameAddFormControl.file.touched) && gameAddFormControl.file.errors?.required">
+                    {{IsRequired}}
+                </div>
+            </div>
+
+        </form>
+  
+    </div>
+
+    <button class="search-button" (click)="onClickSave()">{{SaveButtonTitle}}</button>
+    
+</div>

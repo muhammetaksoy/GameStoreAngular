@@ -1,0 +1,12 @@
+@import "../../shared/scss/variable";
+
+.navbar{
+    background-color: $navbarColor;
+    padding: 20px 10px;
+
+    & .navbar-title{
+        color:$appMainTextColor;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}

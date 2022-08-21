@@ -1,0 +1,41 @@
+@import "../../shared/scss/variable";
+
+.container{
+    width:60%;
+    margin: 0 auto;
+    margin-top: 3rem;
+
+    & .search-game{
+        display: flex;
+        justify-content: space-between;
+        margin-top:2rem;
+
+        & .search-game-input{
+            width:40%;
+            padding:10px 20px;
+             border: 1px solid $navbarButtonColor;
+            border-radius:20px;
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+        & .search-button{
+            padding:10px 20px;
+            background-color:$navbarButtonColor;
+            border: 1px solid $navbarButtonColor;
+            border-radius:20px;
+            color:$appMainTextColor;
+
+            &:hover{
+                cursor: pointer;
+                background-color:$appMainTextColor;
+                color: $navbarButtonColor;
+                transition-duration:0.5s;
+            }
+          
+        }
+
+    }
+}
